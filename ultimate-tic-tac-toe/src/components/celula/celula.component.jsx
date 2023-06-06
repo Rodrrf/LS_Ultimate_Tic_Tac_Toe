@@ -1,23 +1,12 @@
 import React from "react";
-import { useState } from 'react';
+
 import "./celula.css"
 
-export default function Celula(props){
-    const {jogador} = props;
-    const [value, setValue] = useState(null);
+export default function Celula({value, onClick}){
+    const style = value === "X" ? "celula X" : "celula O";
 
-    function switchplay(){
-        console.log(jogador);
-        if(jogador)
-            setValue('X');
-        else
-            setValue('O');
-            
-        
-        
-    }
     return (
-        <div className="celula jogavel" onClick={switchplay}>{value}</div>
+        <button className={style} onClick={onClick}>{value}</button>
     )
 
 }
