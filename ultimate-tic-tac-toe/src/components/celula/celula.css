@@ -1,0 +1,10 @@
+.celula{
+    background-color: #1E2225;
+    border-radius: 4px; 
+    }
+    .jogavel:hover{
+        background-color: #C4C3C4;
+        border: solid 2px #4B4A4B;
+        transition: 0.3s;
+    }
+    
