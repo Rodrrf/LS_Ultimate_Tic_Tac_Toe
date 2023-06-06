@@ -10,6 +10,8 @@ function App() {
 
   const [board, setboard] = useState(Array(9).fill());
   const [jogador, setjogador] = useState(true);
+  const [fimDeJogo, setfimDeJogo] = useState(false);
+  const [estilo, setestilo] = useState("App")
 
     const clicarnacelula = (idcelula) =>{
     const boardatulizada = board.map((value, id) =>{
@@ -27,7 +29,8 @@ function App() {
     for(let i = 0; i < ganharjogo.length; i++){
       const [a,b,c] = ganharjogo[i];
 
-      if(board[a] === board[b] && board[b] === board[c]){
+      if(board[a] && board[a] === board[b] && board[b] === board[c]){
+        setfimDeJogo(true);
         console.log(board[a]);
         return board[a];
       }
@@ -35,9 +38,13 @@ function App() {
     }
   }
 
+  const terminarjogo = () => {
+    setestilo("App estilo");
+  }
+
   return (
-    <div className="App">
-      <TabuleiroMini board={board} onClick={clicarnacelula}/>
+    <div className={estilo} >
+      <TabuleiroMini board={board} onClick={fimDeJogo ? terminarjogo : clicarnacelula}/>
     </div>
   );
 }
