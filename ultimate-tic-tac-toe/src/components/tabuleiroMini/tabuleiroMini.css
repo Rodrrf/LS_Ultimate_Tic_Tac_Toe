@@ -1,0 +1,11 @@
+.tabuleiromini{
+    display: grid;
+    grid-template-columns: repeat(3, 45px);
+    grid-template-rows: repeat(3, 45px);
+    background-color: #2D3035;
+    border-radius: 4px;
+    gap: 5px;
+    justify-self: center;
+    align-self: center;
+
+}

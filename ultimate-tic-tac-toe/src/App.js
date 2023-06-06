@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Celula from './components/celula/celula.component';
+import TabuleiroMini from './components/tabuleiroMini/tabuleiroMini.components';
 
 function App() {
   return (
     <div className="App">
-      <Celula/>
+      <TabuleiroMini/>
     </div>
   );
 }

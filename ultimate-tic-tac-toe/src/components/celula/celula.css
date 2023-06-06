@@ -1,6 +1,7 @@
 .celula{
     background-color: #1E2225;
     border-radius: 4px; 
+    color:white;
     }
     .jogavel:hover{
         background-color: #C4C3C4;
