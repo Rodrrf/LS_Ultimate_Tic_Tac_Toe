@@ -6,7 +6,7 @@ export default function TabuleiroMini({board, onClick}){
     return (
         <div className="tabuleiromini">
             {board.map((value, id) =>{ 
-              return <Celula value={value} onClick={()=>onClick(id)}/>
+              return <Celula value={value} key={id} onClick={() => value === null && onClick(id)}/>
             })}
         </div>
     )

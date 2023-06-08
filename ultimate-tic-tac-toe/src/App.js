@@ -8,7 +8,7 @@ function App() {
                  [0,3,6],[1,4,7],[2,5,8],
                  [0,4,8],[2,4,6]]
 
-  const [board, setboard] = useState(Array(9).fill());
+  const [board, setboard] = useState(Array(9).fill(null));
   const [jogador, setjogador] = useState(true);
   const [fimDeJogo, setfimDeJogo] = useState(false);
   const [estilo, setestilo] = useState("App")
@@ -44,6 +44,7 @@ function App() {
 
   return (
     <div className={estilo} >
+      
       <TabuleiroMini board={board} onClick={fimDeJogo ? terminarjogo : clicarnacelula}/>
     </div>
   );
