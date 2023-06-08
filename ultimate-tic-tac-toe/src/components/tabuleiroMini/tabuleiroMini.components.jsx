@@ -32,13 +32,14 @@ export default function TabuleiroMini({ valor, jogador, onClick, handlresoltado,
           setFimDeJogo(true);
           console.log(board[a]);
           handlresoltado(numerodataboleiro, board[idcelula]);
+          jogador ? setEstilo("tabuleiromini XGanhou") : setEstilo("tabuleiromini OGanhou")
           return board[a];
         }
       }
     };
   
     const terminarJogo = () => {
-      setEstilo("tabuleiromini estilo");
+      jogador ? setEstilo("tabuleiromini OGanhou") : setEstilo("tabuleiromini XGanhou")
       console.log('FIM' +valor);
     };
   

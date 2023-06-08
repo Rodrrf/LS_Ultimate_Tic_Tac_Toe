@@ -9,3 +9,13 @@
     align-self: center;
 
 }
+
+.XGanhou{
+    background-color: rgb(245, 108, 84);
+    pointer-events: none;
+}
+
+.OGanhou{
+    background-color: rgb(137, 171, 256);
+    pointer-events: none;
+}
