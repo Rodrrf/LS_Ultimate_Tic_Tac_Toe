@@ -1,5 +1,5 @@
     .celula{
-    background-color: #1E2225;
+    background-color: #bbb8b5;
     border-radius: 4px; 
     color:white;
     font-size: 30px;
@@ -10,10 +10,21 @@
         transition: 0.3s;
     }
     .X{
-        color: rgb(45, 136, 256);
+        
+        color: rgb(254, 69, 36);
+        font-weight: bold;
     }
     .O{
-        color: rgb(254, 69, 36);
+        color: rgb(45, 136, 256);
+        font-weight: bold;
+    }
+
+    .XGanhou{
+        background-color: rgb(245, 108, 84);
+    }
+
+    .OGanhou{
+        background-color: rgb(137, 171, 256);
     }
     
     

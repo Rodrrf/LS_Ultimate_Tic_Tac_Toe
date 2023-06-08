@@ -1,20 +1,67 @@
 .tabuleiroultimate{
-    background-color: grey;
+    background-color: #7e7b79;
     display: grid;
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
-    padding: 10px 30px 0 30px;
+    padding: 10px 30px 20px 30px;
     gap: 10px;
+
 }
 
 .tabuleiroultimates{
     pointer-events: none;
-    background-color: grey;
+    background-color: #7e7b79;
     display: grid;
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
-    padding: 10px 30px 0 30px;
+    padding: 10px 30px 20px 30px;
     gap: 10px;
+}
+
+.player{
+    background-color: #7e7b79;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20rem;
+    font-size: 1.5em;
+    margin: 1rem 3rem;
+    box-shadow: 0px 0px;
+    gap: 60px;
+
+}
+
+.p{
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.playerX{
+    color: rgb(254, 69, 36);
+    border-bottom: 5px solid rgb(254, 69, 36);
+    border-radius: 0.5rem 0 0 0.5rem;
+    padding: 0 0 10px 0;
+}
+
+.playerO{
+    color:  rgb(45, 136, 256);
+    border-bottom: 5px solid  rgb(45, 136, 256);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0 0 10px 0;
+}
+
+
+.inactive{
+    border-bottom: 5px solid transparent;
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7e7b79;
+    font-weight: bold;
 }

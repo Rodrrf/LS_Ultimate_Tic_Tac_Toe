@@ -48,6 +48,12 @@ export default function TabuleiroUltimate() {
     };
   
     return (
+    <div className='game'>
+      <div className="player">
+        <span className={`playerX ${!jogador && "inactive"}`}>Player X  </span>
+        <span className={`playerO ${jogador && "inactive"}`}>Player O  </span>
+      </div>
+      
       <div className={estilo}>
         {boardUltimate.map((value, id) => (
           <TabuleiroMini 
@@ -59,5 +65,7 @@ export default function TabuleiroUltimate() {
             handlresoltado={atualizataboleiro} numerodataboleiro={id} />
         ))}
       </div>
+      <div className='game'></div>
+    </div>
     );
   }
