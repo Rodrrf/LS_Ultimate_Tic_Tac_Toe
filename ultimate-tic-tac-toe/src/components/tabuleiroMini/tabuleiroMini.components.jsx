@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./tabuleiroMini.css"
 import Celula from "../celula/celula.component";
 
-export default function TabuleiroMini() {
+export default function TabuleiroMini({ jogador, onClick }) {
     const ganharjogo = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -10,18 +10,19 @@ export default function TabuleiroMini() {
     ];
   
     const [board, setBoard] = useState(Array(9).fill(null));
-    const [jogador, setJogador] = useState(true);
     const [fimDeJogo, setFimDeJogo] = useState(false);
     const [estilo, setEstilo] = useState("tabuleiromini");
   
     const clicarNaCelula = (idcelula) => {
-      const boardAtualizada = board.map((value, id) => {
-        if (id === idcelula) return jogador === true ? "X" : "O";
-        else return value;
-      });
-      verificarVencedor(boardAtualizada);
-      setBoard(boardAtualizada);
-      setJogador(!jogador);
+      if (!fimDeJogo && board[idcelula] === null) {
+        const boardAtualizada = board.map((value, id) => {
+          if (id === idcelula) return jogador === true ? "X" : "O";
+          else return value;
+        });
+        verificarVencedor(boardAtualizada);
+        setBoard(boardAtualizada);
+        onClick(); // Chama a função onClick passada como prop para o TabuleiroMini
+      }
     };
   
     const verificarVencedor = (board) => {
@@ -29,7 +30,7 @@ export default function TabuleiroMini() {
         const [a, b, c] = ganharjogo[i];
         if (board[a] && board[a] === board[b] && board[b] === board[c]) {
           setFimDeJogo(true);
-          console.log(board[a]);
+          //console.log(board[a]);
           return board[a];
         }
       }
@@ -40,11 +41,14 @@ export default function TabuleiroMini() {
     };
   
     return (
-      
-        <div className={estilo}>
-          {board.map((value, id) => (
-            <Celula value={value} key={id} onClick={fimDeJogo ? terminarJogo : () => value === null && clicarNaCelula(id)}/>
-          ))}
-        </div>
+      <div className={estilo}>
+        {board.map((value, id) => (
+          <Celula
+            value={value}
+            key={id}
+            onClick={fimDeJogo ? terminarJogo : () => clicarNaCelula(id)}
+          />
+        ))}
+      </div>
     );
   }

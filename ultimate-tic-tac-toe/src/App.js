@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import TabuleiroMini from './components/tabuleiroMini/tabuleiroMini.components';
+import TabuleiroUltimate from './components/tabuleiroUltimate/tabuleiroUltimate.component';
 
 export default function App() {
   
   return (
     <div className="App">
-      <TabuleiroMini  />
+      <TabuleiroUltimate/>
     </div>
   );
 }
