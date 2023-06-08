@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./tabuleiroMini.css"
 import Celula from "../celula/celula.component";
 
-export default function TabuleiroMini({ jogador, onClick, handlresoltado, numerodataboleiro}) {
+export default function TabuleiroMini({ valor, jogador, onClick, handlresoltado, numerodataboleiro}) {
     const ganharjogo = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -39,6 +39,7 @@ export default function TabuleiroMini({ jogador, onClick, handlresoltado, numero
   
     const terminarJogo = () => {
       setEstilo("tabuleiromini estilo");
+      console.log('FIM' +valor);
     };
   
     return (
@@ -47,7 +48,7 @@ export default function TabuleiroMini({ jogador, onClick, handlresoltado, numero
           <Celula
             value={value}
             key={id}
-            onClick={fimDeJogo ? terminarJogo : () => clicarNaCelula(id)}
+            onClick={valor ? fimDeJogo ? terminarJogo : () => clicarNaCelula(id) : terminarJogo}
           />
         ))}
       </div>

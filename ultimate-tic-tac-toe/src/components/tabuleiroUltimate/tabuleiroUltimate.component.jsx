@@ -11,6 +11,7 @@ export default function TabuleiroUltimate() {
   
     const [boardUltimate, setBoardUltimate] = useState(Array(9).fill(null));
     const [jogador, setJogador] = useState(true);
+    const [valor, setvalor] = useState(true);
     const [fimDeJogo, setFimDeJogo] = useState(false);
     const [estilo, setEstilo] = useState("tabuleiroultimate");
   
@@ -26,6 +27,7 @@ export default function TabuleiroUltimate() {
       });
       verificarVencedor(boardAtualizada);
       setBoardUltimate(boardAtualizada);
+      console.log(boardAtualizada);
   }
   
     const verificarVencedor = (boardUltimate) => {
@@ -33,20 +35,28 @@ export default function TabuleiroUltimate() {
         const [a, b, c] = ganharjogo[i];
         if (boardUltimate[a] && boardUltimate[a] === boardUltimate[b] && boardUltimate[b] === boardUltimate[c]) {
           setFimDeJogo(true);
-          console.log(boardUltimate[a]);
+          console.log('Verifica = ' +boardUltimate[a]);
+          setEstilo("tabuleiroultimates");
           return boardUltimate[a];
         }
       }
     };
   
     const terminarJogo = () => {
-      setEstilo("tabuleiroultimate estilo");
+      setEstilo("tabuleiroultimates");
+      setvalor(false);
     };
   
     return (
       <div className={estilo}>
         {boardUltimate.map((value, id) => (
-          <TabuleiroMini key={id} jogador={jogador} onClick={() => mudarTabuleiro(id)} handlresoltado={atualizataboleiro} numerodataboleiro={id} />
+          <TabuleiroMini 
+            valor = {valor}
+            value={value} 
+            key={id} 
+            jogador={jogador} 
+            onClick={fimDeJogo ? terminarJogo :() => mudarTabuleiro(id)} 
+            handlresoltado={atualizataboleiro} numerodataboleiro={id} />
         ))}
       </div>
     );

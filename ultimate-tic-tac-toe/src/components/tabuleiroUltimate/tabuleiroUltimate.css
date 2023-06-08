@@ -1,5 +1,16 @@
 .tabuleiroultimate{
-    background-color: #2D3035;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    padding: 10px 30px 0 30px;
+    gap: 10px;
+}
+
+.tabuleiroultimates{
+    pointer-events: none;
+    background-color: grey;
     display: grid;
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
