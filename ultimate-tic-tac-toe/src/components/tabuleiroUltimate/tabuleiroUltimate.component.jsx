@@ -15,14 +15,18 @@ export default function TabuleiroUltimate() {
     const [estilo, setEstilo] = useState("tabuleiroultimate");
   
     const mudarTabuleiro = (idtabuleiro) => {
+      setJogador(!jogador);
+    };
+
+    const atualizataboleiro = (numero , valorpassar) =>{
+      console.log("chamarao");
       const boardAtualizada = boardUltimate.map((value, id) => {
-        if (id === idtabuleiro) return jogador === true ? "X" : "O";
+        if (id === numero) return jogador === true ? "X" : "O";
         else return value;
       });
       verificarVencedor(boardAtualizada);
       setBoardUltimate(boardAtualizada);
-      setJogador(!jogador);
-    };
+  }
   
     const verificarVencedor = (boardUltimate) => {
       for (let i = 0; i < ganharjogo.length; i++) {
@@ -42,7 +46,7 @@ export default function TabuleiroUltimate() {
     return (
       <div className={estilo}>
         {boardUltimate.map((value, id) => (
-          <TabuleiroMini key={id} jogador={jogador} onClick={() => mudarTabuleiro(id)} />
+          <TabuleiroMini key={id} jogador={jogador} onClick={() => mudarTabuleiro(id)} handlresoltado={atualizataboleiro} numerodataboleiro={id} />
         ))}
       </div>
     );

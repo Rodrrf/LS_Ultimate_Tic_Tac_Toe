@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./tabuleiroMini.css"
 import Celula from "../celula/celula.component";
 
-export default function TabuleiroMini({ jogador, onClick }) {
+export default function TabuleiroMini({ jogador, onClick, handlresoltado, numerodataboleiro}) {
     const ganharjogo = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -19,18 +19,19 @@ export default function TabuleiroMini({ jogador, onClick }) {
           if (id === idcelula) return jogador === true ? "X" : "O";
           else return value;
         });
-        verificarVencedor(boardAtualizada);
+        verificarVencedor(boardAtualizada, idcelula);
         setBoard(boardAtualizada);
         onClick(); // Chama a função onClick passada como prop para o TabuleiroMini
       }
     };
   
-    const verificarVencedor = (board) => {
+    const verificarVencedor = (board, idcelula) => {
       for (let i = 0; i < ganharjogo.length; i++) {
         const [a, b, c] = ganharjogo[i];
         if (board[a] && board[a] === board[b] && board[b] === board[c]) {
           setFimDeJogo(true);
-          //console.log(board[a]);
+          console.log(board[a]);
+          handlresoltado(numerodataboleiro, board[idcelula]);
           return board[a];
         }
       }
