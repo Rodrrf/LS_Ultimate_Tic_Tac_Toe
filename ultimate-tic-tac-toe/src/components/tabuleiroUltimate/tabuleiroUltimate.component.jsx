@@ -28,7 +28,7 @@ export default function TabuleiroUltimate() {
       verificarVencedor(boardAtualizada);
       setBoardUltimate(boardAtualizada);
       console.log(boardAtualizada);
-  }
+    }
   
     const verificarVencedor = (boardUltimate) => {
       for (let i = 0; i < ganharjogo.length; i++) {
