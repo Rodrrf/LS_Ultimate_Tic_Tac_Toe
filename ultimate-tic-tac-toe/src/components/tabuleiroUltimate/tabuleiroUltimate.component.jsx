@@ -17,7 +17,6 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
   const [tempoJogador1, setTempoJogador1] = useState(60); // Tempo inicial do jogador 1 (em segundos)
   const [tempoJogador2, setTempoJogador2] = useState(60); // Tempo inicial do jogador 2 (em segundos)
   const [vencedor, setVencedor] = useState(null); // Nome do jogador vencedor
-
   useEffect(() => {
     // Decrementar o tempo do jogador a cada segundo
     const interval = setInterval(() => {
@@ -68,12 +67,20 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
   };
 
   const verificarVencedor = (boardUltimate) => {
+    let j;
     for (let i = 0; i < ganharjogo.length; i++) {
       const [a, b, c] = ganharjogo[i];
-      if (boardUltimate[a] && boardUltimate[a] === boardUltimate[b] && boardUltimate[b] === boardUltimate[c]) {
+      if (boardUltimate[a] !== "-" && boardUltimate[a] && boardUltimate[a] === boardUltimate[b] && boardUltimate[b] === boardUltimate[c]) {
         terminarJogo(boardUltimate[a]);
         return;
       }
+    }
+
+    for(j = 0; j < 9 && boardUltimate[j] !== null; j++);
+
+    if(j === 9){
+      terminarJogo("-");
+      return;
     }
   };
 
@@ -109,9 +116,11 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
       </div>
       {fimDeJogo && (
         <div className="mensagem-vencedor">
-          O jogador <span>{vencedor === "O" ? nomeJogador2 : nomeJogador1}</span> venceu o jogo!
+          <span>{vencedor === "-" ? "Empate" : vencedor === "O" ? "O jogador " + nomeJogador2 + " venceu o jogo!"
+          : "O jogador " + nomeJogador1 + " venceu o jogo!"}</span>
         </div>
       )}
+
     </div>
   );
 }
