@@ -19,3 +19,7 @@
     background-color: rgb(137, 171, 256);
     pointer-events: none;
 }
+
+.empate{
+    pointer-events: none;
+}
