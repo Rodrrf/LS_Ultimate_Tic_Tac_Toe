@@ -16,6 +16,7 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
   const [estilo, setEstilo] = useState("tabuleiroultimate");
   const [tempoJogador1, setTempoJogador1] = useState(60); // Tempo inicial do jogador 1 (em segundos)
   const [tempoJogador2, setTempoJogador2] = useState(60); // Tempo inicial do jogador 2 (em segundos)
+  const [vencedor, setVencedor] = useState(null); // Nome do jogador vencedor
 
   useEffect(() => {
     // Decrementar o tempo do jogador a cada segundo
@@ -28,10 +29,14 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
     }, 1000);
 
     // Verificar se o tempo acabou para algum jogador
-    if (tempoJogador1 === 0 || tempoJogador2 === 0 || !valor) {
-      console.log("Entrei na função");
+    if (tempoJogador1 === 0) {
       clearInterval(interval);
-      terminarJogo();
+      terminarJogo("O");
+    }else if(tempoJogador2 === 0){
+      clearInterval(interval);
+      terminarJogo("X");
+    }else if(!valor){
+      clearInterval(interval);
     }
 
     return () => {
@@ -56,30 +61,29 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
     for (let i = 0; i < ganharjogo.length; i++) {
       const [a, b, c] = ganharjogo[i];
       if (boardUltimate[a] && boardUltimate[a] === boardUltimate[b] && boardUltimate[b] === boardUltimate[c]) {
-        setFimDeJogo(true);
-        //setEstilo("tabuleiroultimates");
-        terminarJogo();
-        return boardUltimate[a];
+        terminarJogo(boardUltimate[a]);
+        return;
       }
     }
   };
 
-  const terminarJogo = () => {
+  const terminarJogo = (vencedor) => {
+    setFimDeJogo(true);
+    console.log("funcao fim " + vencedor);
     setEstilo("tabuleiroultimates");
     setValor(false);
+    setVencedor(vencedor);
   };
 
   return (
     <div className='game'>
       <div className="player">
-      <dl>{tempoJogador1}s</dl>
+        <dl>{tempoJogador1}s</dl>
         <span className={`playerX ${!jogador && "inactive"}`}>{nomeJogador1}</span>
         <span>vs</span>
-       
         <span className={`playerO ${jogador && "inactive"}`}>{nomeJogador2}</span>
         <dl>{tempoJogador2}s</dl>
       </div>
-      
       <div className={estilo}>
         {boardUltimate.map((value, id) => (
           <TabuleiroMini 
@@ -93,6 +97,11 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
           />
         ))}
       </div>
+      {fimDeJogo && (
+        <div className="mensagem-vencedor">
+          O jogador <span>{vencedor === "O" ? nomeJogador2 : nomeJogador1}</span> venceu o jogo!
+        </div>
+      )}
     </div>
   );
 }
