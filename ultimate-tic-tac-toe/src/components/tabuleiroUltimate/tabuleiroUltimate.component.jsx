@@ -50,11 +50,21 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
 
   const atualizarTabuleiro = (numero, valorpassar) => {
     const boardAtualizada = boardUltimate.map((value, id) => {
-      if (id === numero) return jogador === true ? "X" : "O";
-      else return value;
+      if (id === numero){
+      if(valorpassar === "X"){
+        return "X";
+      }else if(valorpassar === "O"){
+        return "O";
+      }else if(valorpassar === "-"){
+        return "-";
+      }else{
+        return "nao sei";
+      }
+    }else return value;
     });
     verificarVencedor(boardAtualizada);
     setBoardUltimate(boardAtualizada);
+    console.log(boardAtualizada);
   };
 
   const verificarVencedor = (boardUltimate) => {

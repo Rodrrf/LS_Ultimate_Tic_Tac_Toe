@@ -26,20 +26,33 @@ export default function TabuleiroMini({ valor, jogador, onClick, handlresoltado,
     };
   
     const verificarVencedor = (board, idcelula) => {
+      let j;
       for (let i = 0; i < ganharjogo.length; i++) {
         const [a, b, c] = ganharjogo[i];
         if (board[a] && board[a] === board[b] && board[b] === board[c]) {
           setFimDeJogo(true);
           console.log(board[a]);
-          handlresoltado(numerodataboleiro, board[idcelula]);
+          handlresoltado(numerodataboleiro, board[a]);
           jogador ? setEstilo("tabuleiromini XGanhou") : setEstilo("tabuleiromini OGanhou")
           return board[a];
         }
       }
+
+      for(j = 0; j < 9 && board[j] != null; j++);
+
+      if(j === 9){
+        setEstilo("tabuleiromini empate");
+        console.log("-");
+        handlresoltado(numerodataboleiro, "-");
+      }
+
+      
     };
   
     const terminarJogo = () => {
-      jogador ? setEstilo("tabuleiromini OGanhou") : setEstilo("tabuleiromini XGanhou")
+      if(estilo !== "tabuleiromini FODASE")
+        jogador ? setEstilo("tabuleiromini OGanhou") : setEstilo("tabuleiromini XGanhou");
+
       console.log('FIM' +valor);
     };
   
