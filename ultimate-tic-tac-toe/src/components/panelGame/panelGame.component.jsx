@@ -8,10 +8,13 @@ export default function PanelGame({
     setNomeJogador2,
   }) {
     const[bloquea, setBloquea] = useState("");
+    const[styleButton, setStyleButton] = useState("first");
 
     function irJogo() {
      setBloquea(bloquea === "desabilitado" ? "abilitado" : "desabilitado");
-     
+
+     setStyleButton(styleButton === "first" ? "secund" : "first");
+
      funcaoAtualizar();
     }
   
@@ -27,7 +30,7 @@ export default function PanelGame({
       <div className="header">
         <div id="header-dentro">
           <div id="nome-jogadores" className={bloquea}>
-            <label htmlFor="">Nome do jogador 1</label>
+          <label htmlFor="" ><strong>Nome do jogador X</strong></label>
             <input
               type="text"
               id="name"
@@ -38,7 +41,7 @@ export default function PanelGame({
               size="10"
               onChange={handleNomeJogador1Change}
             />
-            <label htmlFor="">Nome do jogador 2</label>
+            <label htmlFor="" ><strong>Nome do jogador O</strong></label>
             <input 
               type="text"
               id="name"
@@ -51,7 +54,7 @@ export default function PanelGame({
             />
           </div>
           <div id="comecar-jogo">
-            <button onClick={irJogo}>{valorButton} </button>
+            <button className ={styleButton} onClick={irJogo}>{valorButton} </button>
           </div>
         </div>
       </div>
