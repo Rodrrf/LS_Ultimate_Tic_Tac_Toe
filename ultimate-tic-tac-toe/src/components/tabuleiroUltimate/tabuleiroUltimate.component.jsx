@@ -93,6 +93,7 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
           />
         ))}
       </div>
+      {!valor && <h4>jwsbwb</h4>}
     </div>
   );
 }
