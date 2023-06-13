@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import TabuleiroUltimate from './components/tabuleiroUltimate/tabuleiroUltimate.component';
 import PanelGame from './components/panelGame/panelGame.component';
+import Footer from './components/footer/footer';
 
 export default function App() {
   const [jogo, setJogo] = useState(false);
@@ -28,7 +29,9 @@ export default function App() {
           nomeJogador1={nomeJogador1}
           nomeJogador2={nomeJogador2}
         />
+       
       )}
+      <Footer nome1 = {"Paulo Sa : 2021142819"} nome2 = {""}/>
     </div>
   );
 }
