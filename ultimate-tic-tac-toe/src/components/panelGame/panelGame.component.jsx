@@ -6,16 +6,20 @@ export default function PanelGame({
     funcaoAtualizar,
     setNomeJogador1,
     setNomeJogador2,
+    nome1,
+    nome2,
   }) {
     const[bloquea, setBloquea] = useState("");
     const[styleButton, setStyleButton] = useState("first");
 
     function irJogo() {
-     setBloquea(bloquea === "desabilitado" ? "abilitado" : "desabilitado");
+      if(nome1 !== "" && nome2 !== ""){
 
-     setStyleButton(styleButton === "first" ? "secund" : "first");
-
-     funcaoAtualizar();
+        setBloquea(bloquea === "desabilitado" ? "abilitado" : "desabilitado");
+        setStyleButton(styleButton === "first" ? "secund" : "first");
+        funcaoAtualizar();
+        
+      }
     }
   
     const handleNomeJogador1Change = (event) => {

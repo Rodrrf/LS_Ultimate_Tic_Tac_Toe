@@ -22,7 +22,8 @@ export default function App() {
         funcaoAtualizar={atualizarNomes}
         setNomeJogador1={setNomeJogador1}
         setNomeJogador2={setNomeJogador2}
-        
+        nome1={nomeJogador1}
+        nome2={nomeJogador2}  
       />
       {jogo && (
         <TabuleiroUltimate
