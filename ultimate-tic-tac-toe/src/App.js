@@ -31,7 +31,7 @@ export default function App() {
         />
        
       )}
-      <Footer nome1 = {"Paulo Sa : 2021142819"} nome2 = {""}/>
+      <Footer nome1 = {"Paulo Sa - 2021142819"} nome2 = {"Rodrigo Ferreira - 2021139149"}/>
     </div>
   );
 }
