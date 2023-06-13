@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import './App.css';
 import TabuleiroUltimate from './components/tabuleiroUltimate/tabuleiroUltimate.component';
 import PanelGame from './components/panelGame/panelGame.component';
+
 export default function App() {
-  const [jogo, setjogo] = useState(false);
-  const [valorbutton, setvalorbutton] = useState("Jogar");
+  const [jogo, setJogo] = useState(false);
+  const [valorButton, setValorButton] = useState("Jogar");
+  const [nomeJogador1, setNomeJogador1] = useState("");
+  const [nomeJogador2, setNomeJogador2] = useState("");
 
-  const atulizarnomes = () => {
-
-    setjogo(!jogo);
-
-    if(valorbutton === "Jogar"){
-
-      setvalorbutton("Reset");
-    }else{
-
-      setvalorbutton("Jogar");
-    }
-
-    }
+  const atualizarNomes = () => {
+    setJogo(!jogo);
+    setValorButton(valorButton === "Jogar" ? "Reset" : "Jogar");
+  };
 
   return (
-    
-      <div className='App'>
-        <PanelGame valorbutton = {valorbutton} funcaoAtulizar = {atulizarnomes} jogo={jogo}/>
-       {jogo && <TabuleiroUltimate/>}
-
-       
-      </div>
-      
-    
+    <div className="App">
+      <PanelGame
+        valorButton={valorButton}
+        funcaoAtualizar={atualizarNomes}
+        setNomeJogador1={setNomeJogador1}
+        setNomeJogador2={setNomeJogador2}
+        
+      />
+      {jogo && (
+        <TabuleiroUltimate
+          nomeJogador1={nomeJogador1}
+          nomeJogador2={nomeJogador2}
+        />
+      )}
+    </div>
   );
 }

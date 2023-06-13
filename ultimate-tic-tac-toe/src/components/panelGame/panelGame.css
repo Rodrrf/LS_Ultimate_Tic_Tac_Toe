@@ -21,3 +21,11 @@
 #comecar-jogo{
     margin: 0 40px;
 }
+
+.desabilitado{
+    pointer-events: none;
+}
+
+.abilitado{
+    pointer-events: auto;
+}

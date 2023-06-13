@@ -43,14 +43,14 @@
     color: rgb(254, 69, 36);
     border-bottom: 5px solid rgb(254, 69, 36);
     border-radius: 0.5rem 0 0 0.5rem;
-    padding: 0 0 10px 0;
+
 }
 
 .playerO{
     color:  rgb(45, 136, 256);
     border-bottom: 5px solid  rgb(45, 136, 256);
     border-radius: 0 0.5rem 0.5rem 0;
-    padding: 0 0 10px 0;
+
 }
 
 
@@ -64,4 +64,9 @@
     align-items: center;
     background-color: #7e7b79;
     font-weight: bold;
+}
+
+tempo{
+    display: flex;
+    color: white;
 }
