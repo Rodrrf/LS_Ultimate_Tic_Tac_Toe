@@ -22,13 +22,14 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
     const interval = setInterval(() => {
       if (jogador) {
         setTempoJogador1((tempo) => tempo - 1);
-      } else {
+      } else{
         setTempoJogador2((tempo) => tempo - 1);
       }
     }, 1000);
 
     // Verificar se o tempo acabou para algum jogador
-    if (tempoJogador1 === 0 || tempoJogador2 === 0) {
+    if (tempoJogador1 === 0 || tempoJogador2 === 0 || !valor) {
+      console.log("Entrei na função");
       clearInterval(interval);
       terminarJogo();
     }
@@ -36,7 +37,7 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
     return () => {
       clearInterval(interval);
     };
-  }, [jogador, tempoJogador1, tempoJogador2]);
+  }, [jogador, tempoJogador1, tempoJogador2, valor]);
 
   const mudarTabuleiro = (idtabuleiro) => {
     setJogador(!jogador);
@@ -56,7 +57,8 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
       const [a, b, c] = ganharjogo[i];
       if (boardUltimate[a] && boardUltimate[a] === boardUltimate[b] && boardUltimate[b] === boardUltimate[c]) {
         setFimDeJogo(true);
-        setEstilo("tabuleiroultimates");
+        //setEstilo("tabuleiroultimates");
+        terminarJogo();
         return boardUltimate[a];
       }
     }
@@ -70,12 +72,12 @@ export default function TabuleiroUltimate({ nomeJogador1, nomeJogador2 }) {
   return (
     <div className='game'>
       <div className="player">
-      <tempo>{tempoJogador1}s</tempo>
+      <dl>{tempoJogador1}s</dl>
         <span className={`playerX ${!jogador && "inactive"}`}>{nomeJogador1}</span>
         <span>vs</span>
        
         <span className={`playerO ${jogador && "inactive"}`}>{nomeJogador2}</span>
-        <tempo>{tempoJogador2}s</tempo>
+        <dl>{tempoJogador2}s</dl>
       </div>
       
       <div className={estilo}>
