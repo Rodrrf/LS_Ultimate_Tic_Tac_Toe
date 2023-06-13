@@ -1,0 +1,23 @@
+.header{
+    background-color: #7e7b79;
+    /*#7e7b79*/
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+#header-dentro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+    width: 570px;
+}
+#nome-jogadores{
+    display: flex;
+    margin: 0 40px;
+    flex-direction: column;
+
+}
+#comecar-jogo{
+    margin: 0 40px;
+}

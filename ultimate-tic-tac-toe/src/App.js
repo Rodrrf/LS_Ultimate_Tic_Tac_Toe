@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import TabuleiroUltimate from './components/tabuleiroUltimate/tabuleiroUltimate.component';
-import Header from './components/header/header.component';
+import PanelGame from './components/panelGame/panelGame.component';
 export default function App() {
   const [jogo, setjogo] = useState(false);
   const [valorbutton, setvalorbutton] = useState("Jogar");
@@ -23,7 +23,7 @@ export default function App() {
   return (
     
       <div className='App'>
-        <Header valorbutton = {valorbutton} funcaoAtulizar = {atulizarnomes} jogo={jogo}/>
+        <PanelGame valorbutton = {valorbutton} funcaoAtulizar = {atulizarnomes} jogo={jogo}/>
        {jogo && <TabuleiroUltimate/>}
 
        
