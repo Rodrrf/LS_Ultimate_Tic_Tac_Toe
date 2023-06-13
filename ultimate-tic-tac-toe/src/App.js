@@ -3,14 +3,28 @@ import './App.css';
 import TabuleiroUltimate from './components/tabuleiroUltimate/tabuleiroUltimate.component';
 import Header from './components/header/header.component';
 export default function App() {
-  const [jogo, setjogo] = useState(true);
-  const [valorbutton, setvalorbutton] = useState("jogar"); 
+  const [jogo, setjogo] = useState(false);
+  const [valorbutton, setvalorbutton] = useState("Jogar");
+
+  const atulizarnomes = () => {
+
+    setjogo(!jogo);
+
+    if(valorbutton === "Jogar"){
+
+      setvalorbutton("Reset");
+    }else{
+
+      setvalorbutton("Jogar");
+    }
+
+    }
+
   return (
     
       <div className='App'>
-        <Header valorbutton = {valorbutton}/>
+        <Header valorbutton = {valorbutton} funcaoAtulizar = {atulizarnomes} jogo={jogo}/>
        {jogo && <TabuleiroUltimate/>}
-       <button className= "reza"onClick={ () => setjogo(!jogo)}>teste fim de jogo</button>
 
        
       </div>
